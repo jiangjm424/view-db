@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="ViewDBActivityTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/database_status_bar_bg</item>
+    </style>
+
+</resources>

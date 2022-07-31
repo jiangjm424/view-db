@@ -1,11 +1,11 @@
 # Android
 local.properties
-*.keystore
 *.DS_Store
 
 # Gradle
 .gradle
 build
+**/build
 
 # Intellij
 *.iml

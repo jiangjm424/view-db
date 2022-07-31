@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.db.view">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application>
+
+        <activity
+            android:name=".page.db.DbActivity"
+            android:exported="false"
+            android:icon="@drawable/ic_safe_database"
+            android:roundIcon="@drawable/ic_safe_database"
+            android:taskAffinity="com.db.view.${applicationId}"
+            android:theme="@style/ViewDBActivityTheme" />
+
+        <activity-alias
+            android:name="com.viewdb.ui.db.DBActivityLauncher"
+            android:exported="true"
+            android:icon="@drawable/ic_safe_database"
+            android:targetActivity=".page.db.DbActivity"
+            android:taskAffinity="com.viewdb.${applicationId}">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name=".page.table.TableActivity"
+            android:exported="false"
+            android:theme="@style/ViewDBActivityTheme" />
+
+        <activity
+            android:name=".page.data.DataActivity"
+            android:exported="false"
+            android:theme="@style/DbDataActivityTheme" />
+
+        <provider
+            android:name="com.db.runtime.DBViewInitProvider"
+            android:authorities="${applicationId}.DBViewInitProvider"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+</manifest>

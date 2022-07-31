@@ -1,11 +1,11 @@
-@file:Suppress("unused")
+@file:Suppress("NOTHING_TO_INLINE")
 
-package coil
+package db
 
 import org.gradle.api.Project
-import org.gradle.api.artifacts.Dependency
-import org.gradle.api.artifacts.dsl.DependencyHandler
-import org.gradle.kotlin.dsl.kotlin
+import org.gradle.api.provider.Property
+import org.gradle.api.provider.Provider
+import org.gradle.api.provider.SetProperty
 import kotlin.math.pow
 
 val Project.minSdk: Int
@@ -24,16 +24,15 @@ val Project.versionName: String
     get() = stringProperty("VERSION_NAME")
 
 val Project.versionCode: Int
-    get() {
-        return versionName
-            .split('.')
-            .map { it.toInt() }
-            .reversed()
-            .sumByIndexed { index, unit ->
-                // 1.2.3 -> 102030
-                (unit * 10.0.pow(2 * index + 1)).toInt()
-            }
-    }
+    get() = versionName
+        .takeWhile { it.isDigit() || it == '.' }
+        .split('.')
+        .map { it.toInt() }
+        .reversed()
+        .sumByIndexed { index, unit ->
+            // 1.2.3 -> 102030
+            (unit * 10.0.pow(2 * index + 1)).toInt()
+        }
 
 private fun Project.intProperty(name: String): Int {
     return (property(name) as String).toInt()
@@ -52,34 +51,8 @@ private inline fun <T> List<T>.sumByIndexed(selector: (Int, T) -> Int): Int {
     return sum
 }
 
-fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? {
-    return add("testImplementation", dependencyNotation)
-}
+inline infix fun <T> Property<T>.by(value: T) = set(value)
 
-fun DependencyHandler.androidTestImplementation(dependencyNotation: Any): Dependency? {
-    return add("androidTestImplementation", dependencyNotation)
-}
+inline infix fun <T> Property<T>.by(provider: Provider<T>) = set(provider)
 
-fun DependencyHandler.addTestDependencies(kotlinVersion: String) {
-    testImplementation(kotlin("test-junit", kotlinVersion))
-    testImplementation(Library.KOTLINX_COROUTINES_TEST)
-
-    testImplementation(Library.ANDROIDX_TEST_CORE)
-    testImplementation(Library.ANDROIDX_TEST_JUNIT)
-    testImplementation(Library.ANDROIDX_TEST_RULES)
-    testImplementation(Library.ANDROIDX_TEST_RUNNER)
-
-    testImplementation(Library.OKHTTP_MOCK_WEB_SERVER)
-    testImplementation(Library.ROBOLECTRIC)
-}
-
-fun DependencyHandler.addAndroidTestDependencies(kotlinVersion: String) {
-    androidTestImplementation(kotlin("test-junit", kotlinVersion))
-
-    androidTestImplementation(Library.ANDROIDX_TEST_CORE)
-    androidTestImplementation(Library.ANDROIDX_TEST_JUNIT)
-    androidTestImplementation(Library.ANDROIDX_TEST_RULES)
-    androidTestImplementation(Library.ANDROIDX_TEST_RUNNER)
-
-    androidTestImplementation(Library.OKHTTP_MOCK_WEB_SERVER)
-}
+inline infix fun <T> SetProperty<T>.by(value: Set<T>) = set(value)

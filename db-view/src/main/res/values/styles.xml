@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="ViewDBActivityTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    </style>
+
+    <style name="ViewDBActivityTheme.ProgressBarPrimary">
+        <item name="colorAccent">@color/database_progress_primary</item>
+    </style>
+
+    <style name="ViewDBActivityTheme.ProgressBarPrimaryReverse">
+        <item name="colorAccent">@color/database_progress_primary_reverse</item>
+    </style>
+
+    <style name="DbDataActivityTheme" parent="ViewDBActivityTheme">
+        <item name="colorControlActivated">@color/database_edit_cursor</item>
+    </style>
+
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="database_toolbar_bg">#446BF4</color>
+    <color name="database_status_bar_bg">#1E4FF8</color>
+    <color name="database_db_card_bg">#f8f8f8</color>
+    <color name="database_db_card_text_primary">#454545</color>
+    <color name="database_db_card_text_secondary">#9E9E9F</color>
+    <color name="database_db_card_external_storage_db">#F2C249</color>
+    <color name="database_db_card_internal_storage_db">#F9875B</color>
+    <color name="database_db_card_storage_text">#FFFFFF</color>
+    <color name="database_table_item_arrow">#446BF4</color>
+    <color name="database_table_even_row_bg">#FFFFFF</color>
+    <color name="database_table_odd_row_bg">#F8F8F8</color>
+    <color name="database_table_border">#DDDDDD</color>
+    <color name="database_table_text">#444444</color>
+    <color name="database_progress_primary">#446BF4</color>
+    <color name="database_progress_primary_reverse">#FFFFFF</color>
+    <color name="database_positive_button">#446BF4</color>
+    <color name="database_negative_button">#9E9E9F</color>
+    <color name="database_edit_underline">#DDDDDD</color>
+    <color name="database_edit_cursor">#446BF4</color>
+    <color name="database_edit_highlight">#55446BF4</color>
+
+</resources>

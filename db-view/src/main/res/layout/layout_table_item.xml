@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="10dp"
+    android:minHeight="100dp"
+    app:cardBackgroundColor="@color/database_db_card_bg"
+    app:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            android:id="@+id/tableNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="@color/database_db_card_text_primary"
+            android:textSize="18sp"
+            tools:text="sample.db" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/arrow_right"
+            app:tint="@color/database_table_item_arrow"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
