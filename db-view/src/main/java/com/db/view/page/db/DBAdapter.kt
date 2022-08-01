@@ -54,8 +54,6 @@ class DBAdapter(
         RecyclerView.ViewHolder(dbItemBinding.root) {
         val lock: ImageView = dbItemBinding.lock
         val dbNameText: TextView = dbItemBinding.dbNameText
-        val dbPathText: TextView = dbItemBinding.dbPathText
-        val modifyTimeText: TextView = dbItemBinding.modifyTimeText
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

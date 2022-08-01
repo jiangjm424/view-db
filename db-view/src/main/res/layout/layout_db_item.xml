@@ -11,59 +11,34 @@
     app:cardBackgroundColor="@color/database_db_card_bg"
     app:cardCornerRadius="10dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="18dp">
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="18dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/dbNameText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal">
+            android:textColor="@color/database_db_card_text_primary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/lock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="sample.db" />
 
-            <TextView
-                android:id="@+id/dbNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/database_db_card_text_primary"
-                android:textSize="18sp"
-                tools:text="sample.db" />
-
-            <ImageView
-                android:id="@+id/lock"
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:paddingVertical="4dp"
-                android:src="@drawable/ic_lock" />
-
-            <TextView
-                android:id="@+id/dbPathText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:ellipsize="end"
-                android:textColor="@color/database_db_card_text_secondary"
-                android:textSize="12sp"
-                android:visibility="gone"
-                tools:text="/data/data/com.example.glance/databases/sample.db" />
-
-            <TextView
-                android:id="@+id/modifyTimeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textColor="@color/database_db_card_text_secondary"
-                android:textSize="12sp"
-                android:visibility="gone"
-                tools:text="Last modified 2020-08-29" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/lock"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:paddingVertical="4dp"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintBottom_toBottomOf="@id/dbNameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dbNameText"
+            app:layout_constraintTop_toTopOf="@id/dbNameText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
