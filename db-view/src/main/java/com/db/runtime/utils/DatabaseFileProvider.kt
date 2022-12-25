@@ -33,7 +33,8 @@ object DatabaseFileProvider {
         val databaseFiles = HashMap<String, Pair<File, String>>()
         try {
             val pref = context.getSharedPreferences("db_viewer", Context.MODE_PRIVATE)
-            for (databaseName in context.databaseList()) {
+            val dbList = context.databaseList().sorted()
+            for (databaseName in dbList) {
                 val password = getDbPasswordFromStringResources(databaseName, pref)
                 databaseFiles[databaseName] = Pair(context.getDatabasePath(databaseName), password)
             }
