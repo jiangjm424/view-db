@@ -44,7 +44,7 @@ class DBViewModel(application: Application) : AndroidViewModel(application) {
     fun loadAndRefreshDBFiles() = viewModelScope.launch {
         _progressLiveData.value = true // start loading
         // Load db files from cache and show the on UI immediately.
-        val cachedDBList = repository.loadCachedDbFiles()
+        val cachedDBList = repository.loadCachedDbFiles().sortedBy { it.name }
         _dbListLiveData.value = cachedDBList
         _progressLiveData.value = false // finish loading
         refreshDBFiles()
@@ -56,7 +56,7 @@ class DBViewModel(application: Application) : AndroidViewModel(application) {
     fun refreshDBFiles() = viewModelScope.launch {
         _progressLiveData.value = true // start loading
         // Scan all db files of current app and update the UI with DiffUtil.
-        val scannedDBList = repository.loadAllDbFiles()
+        val scannedDBList = repository.loadAllDbFiles().sortedBy { it.name }
         _dbListLiveData.value = scannedDBList
 
         // Update the cache with lasted data.
