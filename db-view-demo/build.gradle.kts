@@ -22,8 +22,8 @@ setupAppModule {
 }
 
 dependencies {
-//    implementation(projects.dbView)
-    implementation("io.github.jiangjm424:view-db:+")
+    implementation(projects.dbView)
+//    implementation("io.github.jiangjm424:view-db:+")
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

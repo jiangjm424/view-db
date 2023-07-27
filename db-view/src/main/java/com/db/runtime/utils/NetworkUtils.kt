@@ -21,6 +21,7 @@ package com.db.runtime.utils
 import android.annotation.SuppressLint
 import android.net.wifi.WifiManager
 import android.content.Context
+import com.db.view.R
 
 /**
  * Created by amitshekhar on 15/11/16.
@@ -36,6 +37,7 @@ object NetworkUtils {
             ipAddress shr 16 and 0xff,
             ipAddress shr 24 and 0xff
         )
-        return "Open http://$formattedIpAddress:$port in your browser, with browser you can edit your db , but only view your db in app"
+        val url = "http://$formattedIpAddress:$port/index.html"
+        return String.format(context.getString(R.string.open_by_browser), url)
     }
 }

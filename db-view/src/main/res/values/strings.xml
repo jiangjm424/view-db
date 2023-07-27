@@ -25,4 +25,5 @@
     <string name="database_update_failed_update_abnormal">Update abnormal: affected rows are %1$s</string>
     <string name="database_something_is_wrong_when_loading_data">Something is wrong when loading data</string>
     <string name="database_blob_column_can_not_be_modified">Blob column can not be modified by Glance</string>
+    <string name="open_by_browser">Open %s in your browser to edit the data in the data base.</string>
 </resources>
